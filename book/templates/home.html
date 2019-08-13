@@ -14,14 +14,21 @@
     <title>우.드.달</title>
 </head>
 <body>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
+  <a href="{% url 'home' %}" style="position:relative; margin-bottom: 0px; padding-bottom: 0px;">
+    <div style="background-image:url('{% static 'title.png' %}'); background-color: #EDEBE1; background-size: contain; background-repeat:no-repeat; background-position: center; height: 80px;">
+        <!-- <i class="fas fa-book"></i>
+        <div class="blank"></div>
+        <strong style="font-family:Daehan;">안암보도</strong> -->
+    </div>
+    </a>
+  <!-- <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-center">
       <a href="#" class="navbar-brand d-flex align-items-center">
         <div class="blank"></div>
-        <strong>우리 드크리가 달라졌어요</strong>
+        <img src=""/>
       </a>
     </div>
-  </div>
+  </div> -->
   <!-- <div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
       <div class="row">
@@ -40,7 +47,7 @@
       </div>
     </div>
   </div> -->
-    <ul class="nav nav-tabs bg-dark">
+    <ul class="nav nav-tabs" style="background-color: #E3D8C9;">
     <div class="container d-flex justify-content-between">
     <div class="item" style="font-size: 0.9rem;">
   <li class="nav-item">
@@ -86,7 +93,7 @@
 </ul>
   <div class="next">
 {% block content %}
-    <section class="jumbotron text-center" style="margin-bottom: 0rem;">
+    <section class="jumbotron text-center" style="margin-bottom: 0rem; background-color:rgba(197, 187, 174, 0.247);">
       <div class="container">
         <h1 class="jumbotron-heading" style="font-size: 2rem;">멘티를 자랑하세요!</h1>
         <hr width="0">
@@ -102,13 +109,10 @@
           {% for post in posts %}
           <div class="col-md-4" style="max-width:50%;">
             <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-imgcard-img-top" width="100%" height="30%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder:Thumbnail">
-              <title>
-                Placeholder
-              </title>
-              <rect width="100%" height="100%" fill="#55595c" style="background-image:url('{{ post.picture.url }}'); background-repeat: no-repeat; background-size: cover; background-position: center;"></rect>
-              <text x="50%" text-anchor="middle" y="50%" fill="#eceeef" dy=".3em">{{ post.title }}</text>
-            </svg>
+            <img src="{{ post.pictureb.url }}" style="width: 100%; height: 30%; filter: brightness(50%);"/>
+            <div class="textonimg" style="position: absolute; top: 33%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 1rem;">
+              {{ post.title }}
+            </div>
               <div class="card-body">
                 <p class="card-text">{{ post.author }}</p>
                 <div class="d-flex justify-content-between align-items-center">

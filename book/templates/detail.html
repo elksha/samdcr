@@ -116,15 +116,14 @@
     <!-- Custom styles for this template -->
 
 <body>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container d-flex justify-content-center">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <div class="blank"></div>
-        <strong>우리 드크리가 달라졌어요</strong>
-      </a>
-    </div>
-  </div>
-  <ul class="nav nav-tabs bg-dark">
+    <a href="{% url 'home' %}" style="position:relative; margin-bottom: 0px; padding-bottom: 0px;">
+        <div style="background-image:url('{% static 'title.png' %}'); background-color: #EDEBE1; background-size: contain; background-repeat:no-repeat; background-position: center; height: 80px;">
+            <!-- <i class="fas fa-book"></i>
+            <div class="blank"></div>
+            <strong style="font-family:Daehan;">안암보도</strong> -->
+        </div>
+        </a>
+        <ul class="nav nav-tabs" style="background-color: #E3D8C9;">
   <div class="container d-flex justify-content-between">
   <div class="item" style="font-size: 0.9rem;">
 <li class="nav-item">
