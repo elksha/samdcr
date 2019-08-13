@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dw)ipthxm94ji0pe6m$wdeu*96a=64
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = ['bookreviewblog.herokuapp.com']
+ALLOWED_HOSTS = ['samdcr.herokuapp.com']
 
 
 # Application definition
