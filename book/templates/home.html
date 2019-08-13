@@ -1,0 +1,135 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}?ver=2">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css?" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css?" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>우.드.달</title>
+</head>
+<body>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-center">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <div class="blank"></div>
+        <strong>우리 드크리가 달라졌어요</strong>
+      </a>
+    </div>
+  </div>
+  <!-- <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li>
+            <li><a href="#" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> -->
+    <ul class="nav nav-tabs bg-dark">
+    <div class="container d-flex justify-content-between">
+    <div class="item" style="font-size: 0.9rem;">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'home' %}" style="color:white">글 목록</a>
+  </li>
+  <li classs="nav-item">
+    <div class="verline">
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'new' %}" style="color:white">글쓰기</a>
+  </li>
+  <li classs="nav-item">
+      <div class="verline">
+      </div>
+  </li>
+  {% if user.is_authenticated %}
+  <!-- <li class="nav-item">
+    <a class="nav-link" href="#" style="color:white"><strong>{{ user.username }}</strong>님 환영합니다!</a>
+  </li>
+  <li classs="nav-item">
+      <div class="verline">
+      </div>
+  </li> -->
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'logout' %}" style="color:white">로그아웃</a>
+  </li>
+  {% else %}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'login' %}" style="color:white">로그인</a>
+  </li>
+  <li classs="nav-item">
+      <div class="verline">
+      </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'signup' %}" style="color:white">회원가입</a>
+  </li>
+  {% endif %}
+   </div>
+  </div>
+  </div>
+</ul>
+  <div class="next">
+{% block content %}
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading" style="font-size: 2rem;">멘티를 자랑하세요!</h1>
+        <hr width="0">
+        <p class="lead text-muted" style="font-size: 1.1rem;">3주간 정신없이 진행되었던 드림클래스,</br>캠프에서 처음본 멘티는 어땠고, 지금은 어떤가요?</p>
+        <p>
+          <a href="{% url 'new' %}" class="btn btn-primary my-2">우리 멘티 자랑하기</a>
+        </p>
+      </div>
+    </section>
+    <div class="album py-5 bg-light" style="position:relative; bottom:33px;">
+      <div class="container">
+        <div class="row">
+          {% for post in posts %}
+          <div class="col-md-4" style="max-width:50%;">
+            <div class="card mb-4 shadow-sm" style="width:100%;">
+            <svg class="bd-placeholder-imgcard-img-top" width="100%" height="30%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder:Thumbnail">
+              <title>
+                Placeholder
+              </title>
+              <rect width="100%" height="100%" fill="#55595c"></rect>
+              <text x="50%" text-anchor="middle" y="50%" fill="#eceeef" dy=".3em">{{ post.title }}</text>
+            </svg>
+              <div class="card-body">
+                <p class="card-text">{{ post.author }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'detail' post.pk %}" style="color:black">View</a></button>
+                    {% if post.author == user.username %}
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'edit' post.pk %}" style="color:black">Edit</a></button>
+                    {% else %}
+                    <button class="btn btn-sm btn-outline-secondary"><a href="{% url 'home' %}" style="color:black">Edit</a></button>
+                    {% endif %}
+                  </div>
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+{% endblock %}
+  </div>
+</body>
+</html>

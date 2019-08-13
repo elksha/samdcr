@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'NanumGothic';
+    src: url(NanumGothic.ttf) format('truetype');
+    font-family: 'Daehan';
+    src: url(대한뉴스L.otf) format('opentype');
+    font-family: 'KCC';
+    src: url(KCC-eunyoung.ttf) format('truetype');
+}
+
+.salut {
+    font-family: 'Daehan';
+    color: white;
+    background-image: url('TunedIn_BooksfromtheBanner_large.jpg');
+    text-align: center;
+    height: 80px;
+    margin-top: 0;
+}
+
+.next {
+    position: relative;
+    font-family: 'NanumGothic';
+    text-align: center;
+}
+
+.artlist {
+    position: relative;
+}
+
+.list {
+    position: relative;
+    top: 20px;
+}
+
+.title {
+    font-family: 'KCC';
+    font-size: 50px;
+    position: relative;
+    text-align: left; 
+    left: 10px;
+    top: 10px;
+    color: white;
+}
+
+.hi {
+    font-family: 'Daehan';
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.halu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verline {
+    border-right-width: 0.1em;
+    border-right-style: solid;
+    border-right-color: rgba(173, 173, 173, 0.541);
+    position: relative;
+    height: 19px;
+    top: 12px;
+}
+
+.mid {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.item {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+}
+
+.jumbotron {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    background-color: #fff;
+  }
+  @media (min-width: 768px) {
+    .jumbotron {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  
+  .jumbotron p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .jumbotron-heading {
+    font-weight: 300;
+  }
+  
+  .jumbotron .container {
+    max-width: 40rem;
+  }
+  
+  footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  footer p {
+    margin-bottom: .25rem;
+  }
+  
+.blank {
+    position: relative;
+    width: 8px;
+}
+
+h1, h2, h3, h4, h5 {
+    display: inline;
+}
+
+.reviewline {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 500px;
+}
+
+.imgline {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+#id_comment {
+  width: 40vh;
+  height: 8vh;
+}
