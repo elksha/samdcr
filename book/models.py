@@ -6,8 +6,8 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     review = models.TextField()
     reviewb = models.TextField()
-    picture = models.FileField(null=True, blank=True, default='static/error.jpg')
-    pictureb = models.FileField(null=True, blank=True, default='static/error.jpg')
+    picture = models.FileField(null=False, blank=False)
+    pictureb = models.FileField(null=False, blank=False)
     author = models.CharField(max_length=50, default="")
 
     def __str__(self):
