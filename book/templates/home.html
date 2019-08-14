@@ -121,7 +121,7 @@
                     {% if post.author == user.username %}
                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'edit' post.pk %}" style="color:black">Edit</a></button>
                     {% else %}
-                    <button class="btn btn-sm btn-outline-secondary"><a href="{% url 'home' %}" style="color:black">Edit</a></button>
+                    <button class="btn btn-sm btn-outline-secondary"><a href="{% url 'login' %}" style="color:black">Edit</a></button>
                     {% endif %}
                   </div>
                   <small class="text-muted"></small>
